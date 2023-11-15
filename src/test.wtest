@@ -1,0 +1,17 @@
+import equipo.*
+import VAR.*
+import Jugadas.*
+
+test "testX" {
+	const brasilVSparaguay = new Partido(local = "Brasil", visitante = "Paraguay", jugadas = [
+	new Gol(minuto = 5, equipo = "Brasil", ultimoEnTocar = "Neymar", circunstancias = ""),
+	new Falta(intensidad = 100, minuto = 10, infractor = "Paraguay", victima = "Brasil"),
+	new Pelea(jugadoresEnPelea = ["Brasil", "Brasil", "Brasil", "Brasil", "Paraguay", "Paraguay"], minuto = 34),
+	new Gol(minuto = 5, equipo = "Brasil", ultimoEnTocar = "Neymar", circunstancias = "jugador adelantado"),
+	new Insulto(minuto = 41, jugadorMalHablado = "Brasil", insultoInapropiado = true),
+	new Jugada(minuto = 60),
+	new Jugada(minuto = 80),
+	new Gol(minuto = 89, equipo = "Paraguay", ultimoEnTocar = "Almiron", circunstancias = "la pelota no pasó completamente la línea")])
+	
+	assert.equals(2, brasilVSparaguay.goles("Brasil"))
+}
